@@ -1,6 +1,5 @@
 import compute_days
 
-
 def compute_and_print_result(date):
     
     # Calcula o número de dias e printa o resultado
