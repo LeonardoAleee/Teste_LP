@@ -1,6 +1,18 @@
 from datetime import date 
 
 def compute_days(date_string):
+    """Recebe duas datas e retorna o número de dias entre as duas datas
+
+    Parâmetro
+    ----------
+    date_string : string
+        Deve conter as duas datas separadas por "-".
+
+    Returns
+    -------
+    n_days
+        Retorna a quantidade de dias entre as duas datas
+    """
 
     date_string = date_string.replace("de", "")
 
@@ -19,6 +31,6 @@ def compute_days(date_string):
     month_1 = month_mapper[month_1]
     month_2 = month_mapper[month_2]
 
-    n_days = date(day=day_2, month=month_2, year=year_2) - date(day=day_1, month=month_1, year=year_1)
+    n_days = (date(day=day_2, month=month_2, year=year_2) - date(day=day_1, month=month_1, year=year_1)).days
 
-    return n_days.days
+    return n_days
