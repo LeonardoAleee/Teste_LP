@@ -1,9 +1,10 @@
-import compute_days
+from compute_days import date_normalizer, compute_days
 
 def compute_and_print_result(date):
     
     # Calcula o número de dias e printa o resultado
-    n_days = compute_days.compute_days(date)
+    date_1, date_2 = date_normalizer(date)
+    n_days = compute_days(date_1, date_2)
     print(f"\n- Data: {date.strip()}" )
     print(f"- Há {n_days} dias entre as duas datas")
 
