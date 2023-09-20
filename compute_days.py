@@ -2,7 +2,7 @@ import doctest
 from datetime import date
 
 def date_normalizer(date_string:str) -> tuple:
-    """Recebe duas datas e retorna o número de dias entre as duas datas
+    """Recebe duas datas como string e retorna duas datas como datetime.date
 
     Parâmetro
     ----------
@@ -11,19 +11,19 @@ def date_normalizer(date_string:str) -> tuple:
 
     Returns
     -------
-    n_days
-        Retorna a quantidade de dias entre as duas datas
+    tuple
+        Retorna uma tupla com duas datetime.date
     
     Doctest
     -------   
     
     Calcula a diferença entre as duas datas e retorna o resultado correto
-    >>> compute_days("18 de Agosto de 2023 - 28 de Agosto de 2023")
-    10
+    >>> date_normalizer("18 de Agosto de 2023 - 28 de Agosto de 2023")
+    (datetime.date(2023, 8, 18), datetime.date(2023, 8, 28))
     
     Calcula a diferença entre as duas datas e retorna o resultado incorreto
-    >>> compute_days("18 de Agosto de 2023 - 28 de Agosto de 2023")
-    12
+    >>> date_normalizer("18 de Agosto de 2023 - 28 de Agosto de 2023")
+    (datetime.date(2023, 8, 10), datetime.date(2023, 8, 28))
     """
 
     # Relaciona os meses com os inteiros acima, assim Janeiro é o inteiro 1, Fevereiro, 2, etc.
@@ -57,7 +57,33 @@ def date_normalizer(date_string:str) -> tuple:
 
         return date_normalized_1, date_normalized_2
 
-def compute_days(date_1, date_2):
+def compute_days(date_1, date_2) -> int:
+    """Recebe duas ddatas do tipo datetime.time e retorna um inteiro do dias entre as duas datas
+
+    Parâmetro
+    ----------
+    date_1: datetime.time
+        Contém a primeira data.
+
+    date_2: datetime.time
+        Contém a segunda data.
+
+    Returns
+    -------
+    n_days: int
+        Retorna um inteiro da quantidade de dias entre as duas datas
+    
+    Doctest
+    -------   
+    
+    Calcula a diferença entre as duas datas e retorna o resultado correto
+    >>> compute_days(date(2023, 8, 10), date(2023, 8, 28))
+    18
+    
+    Calcula a diferença entre as duas datas e retorna o resultado incorreto
+    >>> compute_days(date(2023, 8, 10), date(2023, 8, 28))
+    12
+    """
 
     n_days = (date_2 - date_1).days
 
