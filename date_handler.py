@@ -89,6 +89,5 @@ def compute_days(date_1, date_2) -> int:
 
     return n_days
 
-
 if __name__ == "__main__":
     doctest.testmod(verbose=True)
