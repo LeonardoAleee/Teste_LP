@@ -9,8 +9,6 @@ def compute_and_print_result(date):
 
 
 def dates_from_file(file_path):
-    
-    # Pega as datas do arquivo txt e retorna erro se não for possível
     try:
         with open(file_path, 'r') as file:
             dates = file.readlines()
@@ -29,26 +27,3 @@ def get_user_response():
         run = True
 
     return run
-
-
-def console_program():
-    
-    # Cria um loop para o programa e o roda
-    print("● Este programa calcula o número de dias entre duas datas")
-    print("● Insira as datas no formato do exemplo: '28 de Agosto de 2023 - 18 de Setembro de 2023'")
-
-    run = get_user_response()
-    
-    while run:
-        date = input("\nInforme as datas: ")
-        compute_and_print_result(date)
-        run = get_user_response()
-
-    else:
-
-        file_path = input("\n● Em qual arquivo estão as datas?: ")
-        
-
-        dates = dates_from_file(file_path)
-        for date in dates:
-            compute_and_print_result(date)
